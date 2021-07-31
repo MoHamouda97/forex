@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-12">
+        <form nz-form autocomplete="off" [formGroup]="form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="title">
+                                العنوان
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="text"
+                                    placeholder="العنوان ..."
+                                    formControlName="title" 
+                                    id="title" />                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="description">
+                                الوصف
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <quill-editor
+                                    id="description" 
+                                    name="description"
+                                    required 
+                                    formControlName="description"
+                                    [style]="{height: '400px'}"></quill-editor>                                            
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>                    
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div class="float-left">
+                            <nz-form-label nzRequired>
+                                <label for="photo">
+                                    الصورة
+                                </label>
+                            </nz-form-label>
+                        </div>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <label for="photo" class="btn btn-block" matRipple>
+                                    <i class="mdi mdi-upload"></i>
+                                    {{imageName}}
+                                </label>
+                                <input 
+                                    type="file" 
+                                    class="form-control-file" 
+                                    id="photo"
+                                    name="photo"
+                                    formControlName="photo"
+                                    (change)="getImageName($event.target.files)">                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>                    
+
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <button 
+                            class="btn btn-block btn-lg btn-info" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="!isUpdate"
+                            (click)="add()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            اضافة
+                        </button>                           
+                        <button 
+                            class="btn btn-block btn-lg btn-success" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="isUpdate"
+                            (click)="update()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            تحديث
+                        </button>                           
+                    </div>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
