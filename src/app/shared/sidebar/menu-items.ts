@@ -128,13 +128,38 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
+    title: 'اشتراكات الاعضاء',
+    icon: 'fas fa-calendar-alt',
+    class: 'has-arrow',
+    extralink: false,
+    submenu: [
+      {
+        path: '/usersub/all',
+        title: 'عرض',
+        icon: '',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/usersub/add',
+        title: 'اضافة',
+        icon: '',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+    ]
+  },
+  {
+    path: '',
     title: 'تداول',
     icon: 'fas fa-chart-area',
     class: 'has-arrow',
     extralink: false,
     submenu: [
       {
-        path: '/trade/all',
+        path: '/trad/all',
         title: 'عرض',
         icon: '',
         class: '',

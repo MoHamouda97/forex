@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-12">
+        <form nz-form autocomplete="off" [formGroup]="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="title">
+                                الاسم
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="text"
+                                    placeholder="الاسم ..."
+                                    formControlName="name" 
+                                    id="name" />                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="description">
+                                الفترة
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="text"
+                                    placeholder="الفترة ..."
+                                    formControlName="period" 
+                                    id="period" />                                             
+                            </nz-input-group >
+                        </div>                           
+                    </div>                
+                </div>                                      
+
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <button 
+                            class="btn btn-block btn-lg btn-info" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="!isUpdate"
+                            (click)="add()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            اضافة
+                        </button>                           
+                        <button 
+                            class="btn btn-block btn-lg btn-success" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="isUpdate"
+                            (click)="update()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            تحديث
+                        </button>                           
+                    </div>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

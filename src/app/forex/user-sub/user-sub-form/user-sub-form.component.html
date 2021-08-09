@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-md-12">
+        <form nz-form autocomplete="off" [formGroup]="form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="user_id">
+                                الاسم
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-select  formControlName="user_id" >
+                                <nz-option 
+                                    *ngFor="let user of users; let i = index" 
+                                    [nzLabel]="user.username" 
+                                    [nzValue]="user.id"></nz-option>
+                            </nz-select>                                                                            
+                        </div>                             
+                    </div>                
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="subcription_id">
+                                الاشتراك
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-select  formControlName="subcription_id">
+                                <nz-option 
+                                    *ngFor="let sub of subscriptions; let i = index" 
+                                    [nzLabel]="sub.name" 
+                                    [nzValue]="sub.id"></nz-option>
+                            </nz-select>                                            
+                        </div>                             
+                    </div>                
+                </div>                                                                           
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="price">
+                                السعر 
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="number"
+                                    min="0"
+                                    placeholder="السعر ..."
+                                    formControlName="price" 
+                                    id="price" />                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>  
+
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <button 
+                            class="btn btn-block btn-lg btn-info" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="!isUpdate"
+                            (click)="add()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            اضافة
+                        </button>                           
+                        <button 
+                            class="btn btn-block btn-lg btn-success" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="isUpdate"
+                            (click)="update()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            تحديث
+                        </button>                           
+                    </div>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

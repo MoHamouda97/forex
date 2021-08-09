@@ -26,15 +26,15 @@ export class UsersService {
   }
 
   update(obj, id) {
-    return this.http.post(`${environment.url}users/edit/${id}.json`, obj).toPromise();
+    return this.http.post(`${environment.url}api/users/edit/${id}.json`, obj).toPromise();
   }
 
   delete(id) {
-    return this.http.post(`${environment.url}users/delete/${id}.json`, id).toPromise();
+    return this.http.post(`${environment.url}api/users/delete/${id}.json`, id).toPromise();
   }  
   
   login(obj) {
-    return this.http.post(`${environment.url}/users/token.json`, obj)
+    return this.http.post(`${environment.url}/api/users/token.json`, obj)
       .pipe(
         tap(
           res => this.generic.showNotification('success', this.lang.loginTitleTxt ,this.lang.loginSuccessTxt),

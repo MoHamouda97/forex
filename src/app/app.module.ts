@@ -37,6 +37,8 @@ import { CurranciesService } from 'src/services/currancies/currancies.service';
 import { ContactService } from 'src/services/contact/contact.service';
 import { UsersService } from 'src/services/users/users.service';
 import { SliderService } from 'src/services/slider/slider.service';
+import { SubscriptionsService } from 'src/services/subscriptions/subscriptions.service';
+import { UserSubService } from 'src/services/user-sub/user-sub.service';
 
 registerLocaleData(en);
 
@@ -55,7 +57,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BlankComponent,
     NavigationComponent,
     BreadcrumbComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
@@ -85,7 +87,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CurranciesService,
     ContactService,
     UsersService,
-    SliderService
+    SliderService,
+    SubscriptionsService,
+    UserSubService
   ],
   bootstrap: [AppComponent]
 })

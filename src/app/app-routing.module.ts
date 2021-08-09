@@ -35,6 +35,18 @@ export const Approutes: Routes = [
         loadChildren: () => import('./forex/news/news.module').then(m => m.NewsModule)
       },
       {
+        path: 'trad',
+        loadChildren: () => import('./forex/trades/trades.module').then(m => m.TradesModule)
+      },
+      {
+        path: 'sub',
+        loadChildren: () => import('./forex/subscriptions/subscriptions.module').then(m => m.SubscriptionsModule)
+      },
+      {
+        path: 'usersub',
+        loadChildren: () => import('./forex/user-sub/user-sub.module').then(m => m.UserSubModule)
+      },
+      {
         path: 'starter',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
       },

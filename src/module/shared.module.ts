@@ -5,6 +5,8 @@ import { AntModule } from "./ant.module";
 import { MatModule } from "./mat.module";
 import { PipesModule } from "./pipes.module";
 import { QuillModule } from 'ngx-quill';
+import { MatCheckbox } from "@angular/material";
+import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
 
 @NgModule({
     declarations: [
@@ -14,6 +16,7 @@ import { QuillModule } from 'ngx-quill';
         CommonModule,  
         AntModule,
         PipesModule,
+        NzCheckboxModule,
         QuillModule.forRoot()        
     ],
     exports: [
@@ -21,6 +24,7 @@ import { QuillModule } from 'ngx-quill';
         FormsModule,
         AntModule,
         MatModule, 
+        
         PipesModule,  
         QuillModule          
     ],

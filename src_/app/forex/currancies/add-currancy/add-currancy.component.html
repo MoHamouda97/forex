@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-md-12">
+        <form nz-form autocomplete="off" [formGroup]="form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="name">
+                                العملة اسم:
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="text"
+                                    placeholder="العملة اسم ..."
+                                    formControlName="name" 
+                                    id="name" />                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>                  
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="price_sell">
+                                سعر البيع
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="text"
+                                    placeholder="سعر البيع ..."
+                                    formControlName="price_sell" 
+                                    id="price_sell" />                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="price_buy">
+                                سعر الشراء
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <input  
+                                    class="form-control" 
+                                    nz-input 
+                                    type="text"
+                                    placeholder="سعر الشراء ..."
+                                    formControlName="price_buy" 
+                                    id="price_buy" />                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <button 
+                            class="btn btn-block btn-lg btn-info" 
+                            matRipple
+                            *ngIf="!isUpdate"
+                            [disabled]="!form.valid"
+                            (click)="add()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            اضافة
+                        </button>
+                        <button 
+                            class="btn btn-block btn-lg btn-success" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="isUpdate"
+                            (click)="update()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            تحديث
+                        </button>                                                    
+                    </div>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
