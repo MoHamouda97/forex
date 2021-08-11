@@ -45,6 +45,7 @@ export class UserSubFormComponent implements OnInit {
     this.isAdd = false;
     this.generic.showNotification('success', lang.ar.addNewTitle, lang.ar.addNewMsg)
     this.form.reset();
+    console.log
   }
 
   addValuesToForm(object) {
