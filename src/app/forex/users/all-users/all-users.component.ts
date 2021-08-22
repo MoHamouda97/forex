@@ -11,6 +11,7 @@ import * as lang from './../../../../settings/lang';
 })
 export class AllUsersComponent implements OnInit {
   data: any[] = [];
+  pages: any = {};
   loading: boolean = false;
   header: any[] = [
     '#',
@@ -27,8 +28,8 @@ export class AllUsersComponent implements OnInit {
   ngOnInit() {
     this.router.data.subscribe(
       res => {
-        console.log(res)
         this.data = res.users.users;
+        this.pages = res.users.pagination;
       }
     )    
   }
@@ -45,5 +46,12 @@ export class AllUsersComponent implements OnInit {
     this.route.navigate([`/users/edit/${id}`]);
     localStorage.setItem('obj', JSON.stringify(object))
   }  
+
+  async onPageChange(page) {
+    this.loading = true;
+    const data: any = await this.service.get(page).toPromise();
+    this.data = data.users;
+    this.loading = false;
+  }   
 
 }

@@ -11,6 +11,7 @@ import * as lang from './../../../../settings/lang';
 })
 export class AllNewsComponent implements OnInit {
   data: any[] = [];
+  pages: any = {};
   loading: boolean = false;
   header: any[] = [
     '#',
@@ -25,8 +26,8 @@ export class AllNewsComponent implements OnInit {
   ngOnInit() {
     this.router.data.subscribe(
       res => {
-        console.log(res);
         this.data = res.news.news;
+        this.pages = res.news.pagination;
       }
     )
   }
@@ -43,5 +44,12 @@ export class AllNewsComponent implements OnInit {
     this.route.navigate([`/news/edit/${id}`]);
     localStorage.setItem('obj', JSON.stringify(object))
   }  
+
+  async onPageChange(page) {
+    this.loading = true;
+    const data: any = await this.service.get(page).toPromise();
+    this.data = data.data;
+    this.loading = false;
+  }   
 
 }

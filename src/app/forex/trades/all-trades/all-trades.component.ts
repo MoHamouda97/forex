@@ -13,6 +13,7 @@ export class AllTradesComponent implements OnInit {
 
   data: any[] = [];
   loading: boolean = false;
+  pages: any = {};
   header: any[] = [
     '#',
     'العملة',
@@ -31,7 +32,7 @@ export class AllTradesComponent implements OnInit {
     this.router.data.subscribe(
       res => {
         this.data = res.trades.trades;
-        console.log(this.data)
+        this.pages = res.trades.pagination;
       }
     )
   }
@@ -48,6 +49,13 @@ export class AllTradesComponent implements OnInit {
     this.route.navigate([`/trad/edit/${id}`]);
     localStorage.setItem('obj', JSON.stringify(object))
   }  
+
+  async onPageChange(page) {
+    this.loading = true;
+    const data: any = await this.service.get(page).toPromise();
+    this.data = data.trades;
+    this.loading = false;
+  } 
 
 
 }

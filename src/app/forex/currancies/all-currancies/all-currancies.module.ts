@@ -7,7 +7,7 @@ import { AllCurranciesResolver } from "./services/currancies.resolver";
 
 @NgModule({
     declarations: [
-        AllCurranciesComponent
+        AllCurranciesComponent,
     ],
     imports: [
         CommonModule,

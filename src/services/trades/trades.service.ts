@@ -11,8 +11,8 @@ export class TradesService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<any> {
-    return this.http.get(`${environment.url}trades.json`)
+  get(page = 1): Observable<any> {
+    return this.http.get(`${environment.url}trades.json?page=${page}`)
       .pipe(
         shareReplay()
       )
@@ -48,4 +48,8 @@ export class TradesService {
   getCurrencies() {
     return this.http.get<any>(`${environment.url}currencies.json`);
   }
+
+  filter(filter) {
+    return this.http.post(`${environment.url}trades/index.json`, filter).toPromise()
+  }   
 }

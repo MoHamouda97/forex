@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+        <form nz-form autocomplete="off" [formGroup]="form">
+            <div class="row">                  
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div class="float-left">
+                            <nz-form-label nzRequired>
+                                <label for="photo">
+                                    سلايد
+                                </label>
+                            </nz-form-label>
+                        </div>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <label for="photo" class="btn btn-block" matRipple>
+                                    <i class="mdi mdi-upload"></i>
+                                    {{imageName}}
+                                </label>
+                                <input 
+                                    type="file" 
+                                    class="form-control-file" 
+                                    id="photo"
+                                    name="photo"
+                                    formControlName="photo"
+                                    (change)="getImageName($event.target.files)">                                             
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>                    
+
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <button 
+                            class="btn btn-block btn-lg btn-info" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            (click)="add()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            اضافة
+                        </button>                                                     
+                    </div>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

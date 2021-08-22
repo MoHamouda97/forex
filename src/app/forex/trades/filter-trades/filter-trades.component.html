@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form [formGroup]="form" style="width: 100%;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <nz-select  
+                            formControlName="currency_id" 
+                            nzAllowClear 
+                            nzPlaceHolder="'Filter by currancy'"
+                            [nzSize]="'large'">
+                            <nz-option 
+                                *ngFor="let head of currancies; let i = index" 
+                                [nzLabel]="head.name" 
+                                [nzValue]="head.id"></nz-option>
+                        </nz-select>                                     
+                    </div> 
+                    <div class="col-md-3">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="enter"
+                            placeholder="Filter by enter" 
+                            [nzSize]="'large'" >                
+                    </div> 
+                    <div class="col-md-3">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="exit"
+                            placeholder="Filter by exit" 
+                            [nzSize]="'large'" >                
+                    </div> 
+                    <div class="col-md-3">
+                        <button 
+                            class="btn btn-block btn-info" 
+                            matRipple 
+                            nz-button
+                            [nzSize]="'large'"
+                            (click)="filter()">Filter</button>       
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

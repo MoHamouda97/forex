@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form [formGroup]="form" style="width: 100%;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="title"
+                            placeholder="Filter by title" 
+                            [nzSize]="'large'" >                
+                    </div> 
+                    <div class="col-md-4">
+                        <nz-date-picker 
+                            formControlName="created" 
+                            [nzSize]="'large'" 
+                            nzPlaceHolder="Filter by created date"
+                            nzAllowClear="true" ></nz-date-picker>              
+                    </div> 
+                    <div class="col-md-4">
+                        <button 
+                            class="btn btn-block btn-info" 
+                            matRipple 
+                            nz-button
+                            [nzSize]="'large'"
+                            (click)="filter()">Filter</button>       
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

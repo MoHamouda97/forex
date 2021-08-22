@@ -1,13 +1,21 @@
+<app-filter-users
+    (data)="data = $event"
+    (pages)="pages = $event"
+    (loading)="loading = $event"></app-filter-users>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="table-responsive">
                 <nz-table 
-                    #headerTable  
-                    nzShowPagination
+                    [nzFrontPagination]="false"
                     [nzData]="data" 
                     [nzLoading]="loading"
+                    [nzTotal]="pages.page_count * 20"
+                    [nzPageSize]="20"
+                    [nzPageIndex]="1"
                     [nzScroll]="{ x: '240px' }"
+                    (nzPageIndexChange)="onPageChange($event)"
                     class="table forms-table table-striped table-bordered"
                     *ngIf="data.length >= 1">
                     <thead>
@@ -18,7 +26,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let allData of headerTable.data">    
+                        <tr *ngFor="let allData of data">    
                             <td>{{allData["id"]}}</td>                   
                             <td>{{allData["username"]}}</td>                   
                             <td>{{allData["address"]}}</td>                                     

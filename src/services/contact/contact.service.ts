@@ -11,8 +11,8 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<any> {
-    return this.http.get(`${environment.url}contacts.json`)
+  get(page = 1): Observable<any> {
+    return this.http.get(`${environment.url}contacts.json?page=${page}`)
       .pipe(
         shareReplay()
       )
@@ -38,5 +38,9 @@ export class ContactService {
   
   delete(id) {
     return this.http.post(`${environment.url}contacts/delete/${id}.json`, id).toPromise();
+  }
+
+  filter(filter) {
+    return this.http.post(`${environment.url}contacts/index.json`, filter).toPromise()
   }
 }

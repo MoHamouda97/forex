@@ -11,6 +11,7 @@ import * as lang from './../../../../settings/lang';
 })
 export class AllContactComponent implements OnInit {
   data: any[] = [];
+  pages: any = {};
   loading: boolean = false;
   header: any[] = [
     '#',
@@ -26,9 +27,17 @@ export class AllContactComponent implements OnInit {
     this.router.data.subscribe(
       res => {
         this.data = res.contacts.contacts;
+        //this.pages = res.contacts.pagination;
       }
     )
   }
+
+  async onPageChange(page) {
+    this.loading = true;
+    const data: any = await this.service.get(page).toPromise();
+    this.data = data.data;
+    this.loading = false;
+  }   
 
   async delete(id) {
     this.loading = true;

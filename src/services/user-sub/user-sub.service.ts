@@ -29,4 +29,8 @@ export class UserSubService {
   delete(id) {
     return this.http.post(`${environment.url}UserSubscriptions/delete/${id}.json`, id).toPromise();
   } 
+
+  filter(filter) {
+    return this.http.post(`${environment.url}UserSubscriptions/index.json`, filter).toPromise()
+  }     
 }

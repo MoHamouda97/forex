@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form [formGroup]="form" style="width: 100%;">
+                <div class="row">
+                    <div class="col-12 col-md">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="username"
+                            placeholder="Filter by username" 
+                            [nzSize]="'large'" >                                      
+                    </div> 
+                    <div class="col-12 col-md">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="address"
+                            placeholder="Filter by address" 
+                            [nzSize]="'large'" >            
+                    </div> 
+                    <div class="col-12 col-md">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="email"
+                            placeholder="Filter by email" 
+                            [nzSize]="'large'" >                
+                    </div> 
+                    <div class="col-12 col-md">
+                        <input 
+                            type="text"
+                            nz-input
+                            formControlName="mobile"
+                            placeholder="Filter by mobile" 
+                            [nzSize]="'large'" >                 
+                    </div> 
+                    <div class="col-12 col-md">
+                        <button 
+                            class="btn btn-block btn-info" 
+                            matRipple 
+                            nz-button
+                            [nzSize]="'large'"
+                            (click)="filter()">Filter</button>       
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

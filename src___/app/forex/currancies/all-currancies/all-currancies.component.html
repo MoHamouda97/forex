@@ -1,0 +1,44 @@
+<div class="table-responsive">
+    <nz-table 
+        [nzFrontPagination]="false"
+        [nzData]="data" 
+        [nzLoading]="loading"
+        [nzTotal]="pages.page_count * 20"
+        [nzPageSize]="20"
+        [nzPageIndex]="1"
+        [nzScroll]="{ x: '240px' }"
+        (nzPageIndexChange)="onPageChange($event)"
+        class="table forms-table table-striped table-bordered"
+        *ngIf="data.length >= 1">
+        <thead>
+          <tr class="bg-light"> 
+            <th *ngFor="let head of header; let i = index">
+                {{head}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let allData of data">    
+                <td>{{allData["id"]}}</td>                   
+                <td>{{allData["name"]}}</td>                   
+                <td>{{allData["price_buy"]}}</td>                  
+                <td>{{allData["price_sell"]}}</td>                                    
+                <td>{{allData["modified"] | date:'medium'}}</td> 
+                <td>
+                    <button 
+                        class="btn btn-success" 
+                        (click)="goToEdit(allData['id'], allData)"
+                        matRipple><i nz-icon nzType="edit" nzTheme="outline"></i></button>
+                    <button 
+                        nz-popconfirm
+                        nzPopconfirmTitle="هل انت متأكد من عملية الحذف؟"
+                        nzPopconfirmPlacement="top"
+                        (nzOnConfirm)="delete(allData['id'])"
+                        class="btn btn-danger" 
+                        matRipple><i nz-icon nzType="delete" nzTheme="outline"></i></button>                                
+                </td>                  
+            </tr>   
+        </tbody>
+    </nz-table>
+    <nz-table [nzData]="data" *ngIf="data.length == 0"></nz-table>              
+</div>

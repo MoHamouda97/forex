@@ -7,7 +7,7 @@ import { AllContactResolver } from "./services/contact.resolver";
 
 @NgModule({
     declarations: [
-        AllContactComponent
+        AllContactComponent,        
     ],
     imports: [
         CommonModule,

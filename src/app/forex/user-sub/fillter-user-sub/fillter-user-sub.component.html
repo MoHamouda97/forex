@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <form [formGroup]="form" style="width: 100%;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <nz-select  
+                            formControlName="user_id" 
+                            nzAllowClear 
+                            nzPlaceHolder="'Filter by user'"
+                            [nzSize]="'large'">
+                            <nz-option 
+                                *ngFor="let user of users; let i = index" 
+                                [nzLabel]="user.username" 
+                                [nzValue]="user.id"></nz-option>
+                        </nz-select>                                     
+                    </div> 
+                    <div class="col-md-3">
+                        <nz-select  
+                            formControlName="subcription_id" 
+                            nzAllowClear 
+                            nzPlaceHolder="'Filter by subcription'"
+                            [nzSize]="'large'">
+                            <nz-option 
+                                *ngFor="let sub of subscriptions; let i = index" 
+                                [nzLabel]="sub.name" 
+                                [nzValue]="sub.id"></nz-option>
+                        </nz-select>            
+                    </div> 
+                    <div class="col-md-3">
+                        <input 
+                            type="number"
+                            min="0"
+                            nz-input
+                            formControlName="price"
+                            placeholder="Filter by price" 
+                            [nzSize]="'large'" >                
+                    </div> 
+                    <div class="col-md-3">
+                        <button 
+                            class="btn btn-block btn-info" 
+                            matRipple 
+                            nz-button
+                            [nzSize]="'large'"
+                            (click)="filter()">Filter</button>       
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

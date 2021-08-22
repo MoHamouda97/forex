@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="col-md-12">
+        <form nz-form autocomplete="off" [formGroup]="form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="title">
+                                العملة
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-select  formControlName="currency_id" >
+                                <nz-option *ngFor="let head of data; let i = index" [nzLabel]="head.name" [nzValue]="head.id"></nz-option>
+                            </nz-select>
+                           
+                        </div>                             
+                    </div>                
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                <nz-form-label nzRequired>
+                    <label for="title">
+                        الدخول
+                    </label>
+                </nz-form-label>
+                <div class="input-group-lg">
+                    <nz-input-group>
+                        <input  
+                            class="form-control" 
+                            nz-input 
+                            type="text"
+                            formControlName="enter" 
+                            id="enter" />                                             
+                    </nz-input-group >
+                </div>  
+                </div>
+                </div>       
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                <nz-form-label nzRequired>
+                    <label for="title">
+                        الخروج
+                    </label>
+                </nz-form-label>
+                <div class="input-group-lg">
+                    <nz-input-group>
+                        <input  
+                            class="form-control" 
+                            nz-input 
+                            type="text"
+                            formControlName="exit" 
+                            id="enter" />                                             
+                    </nz-input-group >
+                </div>  
+                </div>
+                </div>   
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <nz-form-label nzRequired>
+                            <label for="notes">
+                                ملاحظات
+                            </label>
+                        </nz-form-label>
+                        <div class="input-group-lg">
+                            <nz-input-group>
+                                <quill-editor
+                                    id="notes" 
+                                    name="notes"
+                                    required 
+                                    formControlName="notes"
+                                    [style]="{height: '400px'}"></quill-editor>                                            
+                            </nz-input-group >
+                        </div>                             
+                    </div>                
+                </div>                    
+                              
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                <nz-form-label nzRequired>
+                    <label for="title">
+                        Vip
+                    </label>
+                </nz-form-label>
+                <input  formControlName="vips" type="checkbox" value="1">          
+              </div>
+                </div>   
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <button 
+                            class="btn btn-block btn-lg btn-info" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="!isUpdate"
+                            (click)="add()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            اضافة
+                        </button>                           
+                        <button 
+                            class="btn btn-block btn-lg btn-success" 
+                            matRipple
+                            [disabled]="!form.valid"
+                            *ngIf="isUpdate"
+                            (click)="update()">
+                            <i nz-icon nzType="loading" nzTheme="outline" *ngIf="isAdd"></i>
+                            تحديث
+                        </button>                           
+                    </div>                
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

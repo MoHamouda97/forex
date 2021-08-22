@@ -119,3 +119,7 @@ input[type="file"]{
     text-align: right;
     height: 200px;
 }
+
+.ant-input:placeholder-shown{
+    text-indent: 20px;
+}

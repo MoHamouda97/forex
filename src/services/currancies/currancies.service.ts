@@ -28,5 +28,9 @@ export class CurranciesService {
 
   delete(id) {
     return this.http.post(`${environment.url}currencies/delete/${id}.json`, id).toPromise();
+  } 
+  
+  filter(filter) {
+    return this.http.post(`${environment.url}currencies/index.json`, filter).toPromise()
   }  
 }

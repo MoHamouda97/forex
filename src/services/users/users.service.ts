@@ -14,8 +14,8 @@ export class UsersService {
 
   constructor(private http: HttpClient, private generic: GenericService) { }
 
-  get(): Observable<any> {
-    return this.http.get(`${environment.url}users.json`)
+  get(page = 1): Observable<any> {
+    return this.http.get(`${environment.url}users.json?page=${page}`)
       .pipe(
         shareReplay()
       )
@@ -41,5 +41,9 @@ export class UsersService {
           err => this.generic.showNotification('error', this.lang.loginTitleTxt , `${this.lang.loginFailTxt} \n ${err.message}`)
         )
       )
-  }  
+  } 
+  
+  filter(filter) {
+    return this.http.post(`${environment.url}users/index.json`, filter).toPromise()
+  }     
 }

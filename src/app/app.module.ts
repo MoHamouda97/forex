@@ -8,7 +8,7 @@ import {
 } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -39,6 +39,7 @@ import { UsersService } from 'src/services/users/users.service';
 import { SliderService } from 'src/services/slider/slider.service';
 import { SubscriptionsService } from 'src/services/subscriptions/subscriptions.service';
 import { UserSubService } from 'src/services/user-sub/user-sub.service';
+import { CustomHttpInterceptorInterceptor } from './custom-http-interceptor.interceptor';
 
 registerLocaleData(en);
 
@@ -83,6 +84,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useClass: HashLocationStrategy
     },
     { provide: NZ_I18N, useValue: en_US },
+    {provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptorInterceptor, multi: true},
     GenericService,
     CurranciesService,
     ContactService,

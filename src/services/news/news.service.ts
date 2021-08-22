@@ -11,8 +11,8 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<any> {
-    return this.http.get(`${environment.url}news.json`)
+  get(page = 1): Observable<any> {
+    return this.http.get(`${environment.url}news.json?page=${page}`)
       .pipe(
         shareReplay()
       )
@@ -39,5 +39,9 @@ export class NewsService {
   delete(id) {
     return this.http.post(`${environment.url}news/delete/${id}.json`, id).toPromise();
   }
+
+  filter(filter) {
+    return this.http.post(`${environment.url}news/index.json`, filter).toPromise()
+  }    
     
 }

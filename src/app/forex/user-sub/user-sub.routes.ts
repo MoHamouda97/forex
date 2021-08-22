@@ -17,6 +17,8 @@ export const UserSubRoutes: Routes = [
                 },                
                 resolve: {
                     usersub: AllUserSubResolver,
+                    users: AllUsersResolver,
+                    subscriptions: AllSubscriptionsResolver,
                 }                
             },
             {

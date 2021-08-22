@@ -9,7 +9,7 @@ import { AddContactModule } from './add-contact/add-contact.module';
     imports: [
         RouterModule.forChild(ContactsRoutes),
         AllContactModule,
-        AddContactModule
+        AddContactModule,
     ],
     exports: [],
     providers: [

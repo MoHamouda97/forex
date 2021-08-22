@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() : void {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      mobile: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
     this.isSignIn = !this.isSignIn;
 
     this.usersService.login(this.loginForm.getRawValue()).subscribe(
-      res => this.router.navigate(['/dashboard/dashboard1']),
+      (res: any )=> {
+        localStorage.setItem("token", res.data.token)
+        this.router.navigate(['/users/all'])
+      },
       err => this.isSignIn = !this.isSignIn
     ).remove(this.sub)
   }
