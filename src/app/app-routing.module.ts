@@ -47,6 +47,10 @@ export const Approutes: Routes = [
         loadChildren: () => import('./forex/user-sub/user-sub.module').then(m => m.UserSubModule)
       },
       {
+        path: 'notifications',
+        loadChildren: () => import('./forex/notifications/notifications.module').then(m => m.NotificationsModule)
+      },
+      {
         path: 'starter',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
       },

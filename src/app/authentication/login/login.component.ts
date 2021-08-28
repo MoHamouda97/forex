@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     this.usersService.login(this.loginForm.getRawValue()).subscribe(
       (res: any )=> {
         localStorage.setItem("token", res.data.token)
+        localStorage.setItem("userid", res.data.userid)
         this.router.navigate(['/users/all'])
       },
       err => this.isSignIn = !this.isSignIn

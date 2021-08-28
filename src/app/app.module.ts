@@ -40,6 +40,7 @@ import { SliderService } from 'src/services/slider/slider.service';
 import { SubscriptionsService } from 'src/services/subscriptions/subscriptions.service';
 import { UserSubService } from 'src/services/user-sub/user-sub.service';
 import { CustomHttpInterceptorInterceptor } from './custom-http-interceptor.interceptor';
+import { NotificationsService } from 'src/services/notifications/notifications.service';
 
 registerLocaleData(en);
 
@@ -91,7 +92,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UsersService,
     SliderService,
     SubscriptionsService,
-    UserSubService
+    UserSubService,
+    NotificationsService
   ],
   bootstrap: [AppComponent]
 })

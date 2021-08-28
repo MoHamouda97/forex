@@ -201,4 +201,29 @@ export const ROUTES: RouteInfo[] = [
       }
     ]
   },   
+  {
+    path: '',
+    title: 'الاشعارات',
+    icon: 'fas fa-bell',
+    class: 'has-arrow',
+    extralink: false,
+    submenu: [
+      {
+        path: '/notifications/all',
+        title: 'عرض',
+        icon: '',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/notifications/add',
+        title: 'اضافة',
+        icon: '',
+        class: '',
+        extralink: false,
+        submenu: []
+      }
+    ]
+  },   
 ];
